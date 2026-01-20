@@ -1,0 +1,39 @@
+[
+    {
+      "type": "DEV",
+      "summary": "[DEV] Story Analysis",
+      "description": "Analyze requirements and acceptance criteria",
+      "assignee": "SELF"
+    },
+    {
+      "type": "DEV",
+      "summary": "[DEV] Code Changes",
+      "description": "Implement and commit required code changes",
+      "assignee": "SELF"
+    },
+    {
+      "type": "DEV",
+      "summary": "[DEV] Unit Testing",
+      "description": "Write and execute unit tests",
+      "assignee": "SELF"
+    },
+    {
+      "type": "DEV",
+      "summary": "[DEV] Dev Testing",
+      "description": "Perform functional testing",
+      "assignee": "SELF"
+    },
+    {
+      "type": "QA",
+      "summary": "[QA] Test cases preparation",
+      "description": "Test cases preparation",
+      "assignee": "QA"
+    },
+    {
+      "type": "UX",
+      "summary": "UX Review",
+      "description": "Final UX review and validation",
+      "assignee": "UX"
+    }
+  ]
+  

@@ -1,0 +1,8 @@
+{
+    "baseUrl": "https://yourcompany.atlassian.net",
+    "email": "your_email",
+    "apiToken": "your_api_token",
+    "projectId": "your_proj_id",
+    "uxAccountId": "ux_acc_id"
+  }
+  
