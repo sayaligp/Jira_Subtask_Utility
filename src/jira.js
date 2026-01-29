@@ -20,26 +20,28 @@ export async function getMyAccountId() {
 export async function createSubtask(parentKey, task, assigneeId) {
   const config = loadConfig();
 
-  const payload = {
-    fields: {
-      project: { id: config.projectId },
-      parent: { key: parentKey },
-      issuetype: { name: "Sub-task" },
-      summary: task.summary,
-      description: {
-        type: "doc",
-        version: 1,
-        content: [
-          {
-            type: "paragraph",
-            content: [{ type: "text", text: task.description }]
-          }
-        ]
-      },
-      assignee: { id: assigneeId }
-    }
-  };
+  
+  const fields= {
+    project: { id: config.projectId },
+    parent: { key: parentKey },
+    issuetype: { name: "Sub-task" },
+    summary: task.summary,
+    description: {
+      type: "doc",
+      version: 1,
+      content: [
+        {
+          type: "paragraph",
+          content: [{ type: "text", text: task.description }]
+        }
+      ]
+    },
+  }
 
+  if(assigneeId){
+    fields.assignee= { id: assigneeId }
+  }
+  const payload = {fields};
   const res = await axios.post(
     `${config.baseUrl}/rest/api/3/issue`,
     payload,

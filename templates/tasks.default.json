@@ -24,6 +24,12 @@
       "assignee": "SELF"
     },
     {
+      "type": "DEV",
+      "summary": "[DEV] Buddy Testing",
+      "description": "Buddy testing of implemented changes",
+      "assignee": "NONE"
+    },
+    {
       "type": "QA",
       "summary": "[QA] Test cases preparation",
       "description": "Test cases preparation",
@@ -33,7 +39,7 @@
       "type": "UX",
       "summary": "UX Review",
       "description": "Final UX review and validation",
-      "assignee": "UX"
+      "assignee": "None"
     }
   ]
   

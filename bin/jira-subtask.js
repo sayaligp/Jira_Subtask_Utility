@@ -91,16 +91,17 @@ if (filteredTasks.length === 0) {
     );
 
     for (const task of filteredTasks) {
-      const assigneeId =
-        task.assignee === "SELF"
-          ? myAccountId
-          : config.uxAccountId;
+      let assigneeId = null;
+      if(task.assignee === "SELF"){
+        assigneeId = myAccountId;
+      }
+         
 
       const key = await createSubtask(parentKey, task, assigneeId);
       console.log(`${key} → ${task.summary}`);
     }
 
-    console.log("🎉 Done!");
+    console.log("Done!");
   } catch (err) {
     console.error(
       "Error:",
