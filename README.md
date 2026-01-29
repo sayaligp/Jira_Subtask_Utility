@@ -47,31 +47,21 @@ npm -v
 
 🚀 Installation (Global)
 
-Install directly from the public GitHub repository:
-
-npm install -g https://github.com/<your-username>/<repo-name>.git
-
-
-Example:
-
-npm install -g https://github.com/sayali-gholap/jira-subtask-cli.git
+Install directly fusing below command:
+npm install -g https://github.com/sayaligp/Jira_Subtask_Utility.git
 
 
 Verify installation:
-
 jira-subtask
 
 
 Expected output:
-
 ❌ Usage: jira-subtask <ISSUE-KEY> [--dev-only | --qa-only | --skip-ux]
 
 ⚙️ First-time Setup
-
 On first execution, the utility automatically creates user-specific files:
 
 jira-subtask ABC-1
-
 
 This creates:
 
@@ -85,33 +75,27 @@ Open the config file:
 
 jira-subtask config
 
-
 Update it with your Jira details:
 
 {
   "baseUrl": "https://yourcompany.atlassian.net",
   "email": "your.email@company.com",
   "apiToken": "YOUR_JIRA_API_TOKEN",
-  "projectId": "10001"
+  "projectId": "your project id"
 }
 
 Configuration notes
 
 email → Jira login email
-
 apiToken → Jira API token (NOT your password)
-
 projectId → Jira project ID (not project key)
 
 Create an API token here:
 https://id.atlassian.com/manage-profile/security/api-tokens
 
 📝 Customize Sub-tasks (Optional)
-
 Open task template file:
-
 jira-subtask tasks
-
 
 Each task entry looks like:
 
@@ -123,9 +107,7 @@ Each task entry looks like:
 }
 
 Assignee behavior
-
 "SELF" → assigned to the current user
-
 "NONE" → created unassigned
 
 ▶️ Usage
