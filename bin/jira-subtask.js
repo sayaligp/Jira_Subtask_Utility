@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import { exec } from "child_process";
 import { ensureUserFiles, loadConfig, loadTasks, CONFIG_PATH, TASKS_PATH } from "../src/config.js";
 import { getMyAccountId, createSubtask } from "../src/jira.js";
