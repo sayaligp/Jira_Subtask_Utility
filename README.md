@@ -48,7 +48,7 @@ npm -v
 🚀 Installation (Global)
 
 Install directly fusing below command:
-npm install -g https://github.com/sayaligp/Jira_Subtask_Utility.git
+npm install -g jira-subtask-cli
 
 
 Verify installation:
@@ -73,8 +73,6 @@ This creates:
 
 Open the config file:
 
-jira-subtask config
-
 Update it with your Jira details:
 
 {
@@ -95,7 +93,6 @@ https://id.atlassian.com/manage-profile/security/api-tokens
 
 📝 Customize Sub-tasks (Optional)
 Open task template file:
-jira-subtask tasks
 
 Each task entry looks like:
 
