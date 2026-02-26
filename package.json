@@ -1,6 +1,6 @@
 {
   "name": "jira-subtask-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to auto-create Jira sub-tasks",
   "bin": {
     "jira-subtask": "./bin/jira-subtask.js"
@@ -14,7 +14,11 @@
     "src",
     "templates"
   ],
-  "keywords": ["jira", "cli", "automation"],
+  "keywords": [
+    "jira",
+    "cli",
+    "automation"
+  ],
   "author": "Sayali Pokharkar",
   "license": "MIT",
   "engines": {
