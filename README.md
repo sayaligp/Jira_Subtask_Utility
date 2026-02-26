@@ -147,3 +147,7 @@ Tokens are stored locally on the user’s machine
 Works only with Jira Cloud
 No Jira admin permissions required
 Intended for internal team productivity
+
+## 📦 NPM Package
+
+https://www.npmjs.com/package/jira-subtask-cli
