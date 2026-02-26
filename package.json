@@ -1,6 +1,6 @@
 {
   "name": "jira-subtask-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI to auto-create Jira sub-tasks",
   "bin": {
     "jira-subtask": "./bin/jira-subtask.js"
