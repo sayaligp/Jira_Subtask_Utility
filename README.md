@@ -1,4 +1,4 @@
-# jira-dev-flow
+# Jira CLI for dev flow
 
 A lightweight Node.js CLI for the full Jira development workflow — read tickets, create sub-tasks, track status, add comments, and manage sessions. Designed to integrate with GitHub Copilot prompts without the token overhead of Atlassian MCP for Jira operations.
 
