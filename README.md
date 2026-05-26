@@ -24,11 +24,12 @@ A lightweight Node.js CLI for the full Jira development workflow — read ticket
 - Jira Cloud account (`*.atlassian.net`)
 - Jira API Token — generate one at: https://id.atlassian.com/manage-profile/security/api-tokens
 
-Check versions:
+## Check versions:
+
 ```bash
 node -v
 npm -v
-
+```
 ---
 
 ## Installation (Global)
