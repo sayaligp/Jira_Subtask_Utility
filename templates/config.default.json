@@ -1,7 +1,11 @@
 {
-    "baseUrl": "https://yourcompany.atlassian.net",
-    "email": "your_email",
-    "apiToken": "your_api_token",
-    "projectId": "your_proj_id"
+  "baseUrl": "https://yourcompany.atlassian.net",
+  "email": "your_email",
+  "apiToken": "your_api_token",
+  "projectId": "your_proj_id",
+  "transitions": {
+    "startDevelopment": "In Development",
+    "subtaskInProgress": "In Progress",
+    "subtaskDone": "Done"
   }
-  
+}
