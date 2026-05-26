@@ -1,6 +1,6 @@
-# Jira CLI for dev flow
+# Jira Workflow CLI
 
-A lightweight Node.js CLI for the full Jira development workflow — read tickets, create sub-tasks, track status, add comments, and manage sessions. Designed to integrate with GitHub Copilot prompts without the token overhead of Atlassian MCP for Jira operations.
+A lightweight Node.js CLI for the full Jira workflow — read tickets, create sub-tasks, track status, add comments, and manage sessions. Designed to integrate with GitHub Copilot prompts without the token overhead of Atlassian MCP for Jira operations.
 
 ---
 
@@ -35,22 +35,22 @@ npm -v
 ## Installation (Global)
 
 ```bash
-npm install -g jira-dev-flow
+npm install -g jira-flow
 ```
 
 Verify:
 ```bash
-jira-dev-flow --help
+jira-flow --help
 ```
 
 ---
 
 ## First-time Setup
 
-On first run the CLI creates user config files at `~/.jira-dev-flow/`:
+On first run the CLI creates user config files at `~/.jira-flow/`:
 
 ```
-~/.jira-dev-flow/
+~/.jira-flow/
 ├── config.json        # Jira credentials and transition names
 ├── tasks.json         # Sub-task templates
 ├── sessions/          # Active ticket sessions (auto-managed)
@@ -61,7 +61,7 @@ On first run the CLI creates user config files at `~/.jira-dev-flow/`:
 
 ## Configuration
 
-`~/.jira-dev-flow/config.json`:
+`~/.jira-flow/config.json`:
 
 ```json
 {
@@ -86,14 +86,14 @@ On first run the CLI creates user config files at `~/.jira-dev-flow/`:
 
 Open config in editor:
 ```bash
-jira-dev-flow config
+jira-flow config
 ```
 
 ---
 
 ## Sub-task Templates
 
-`~/.jira-dev-flow/tasks.json` controls which sub-tasks get created. Default:
+`~/.jira-flow/tasks.json` controls which sub-tasks get created. Default:
 
 ```json
 [
@@ -111,7 +111,7 @@ Assignee values: `"SELF"` assigns to the current user, `"NONE"` leaves unassigne
 
 Open tasks in editor:
 ```bash
-jira-dev-flow tasks
+jira-flow tasks
 ```
 
 ---
@@ -120,48 +120,48 @@ jira-dev-flow tasks
 
 ### Read a ticket
 ```bash
-jira-dev-flow ABC-123 --read
+jira-flow ABC-123 --read
 ```
 Prints summary, status, description, and comments to terminal.
-Also writes `~/.jira-dev-flow/ticket-cache/ABC-123.json` for use with GHCP `#file:` references.
+Also writes `~/.jira-flow/ticket-cache/ABC-123.json` for use with GHCP `#file:` references.
 
 ### Create sub-tasks
 ```bash
-jira-dev-flow ABC-123                  # DEV + QA + UX
-jira-dev-flow ABC-123 --dev-only       # DEV + UX
-jira-dev-flow ABC-123 --skip-ux        # DEV only
-jira-dev-flow ABC-123 --qa-only        # QA only
+jira-flow ABC-123                  # DEV + QA + UX
+jira-flow ABC-123 --dev-only       # DEV + UX
+jira-flow ABC-123 --skip-ux        # DEV only
+jira-flow ABC-123 --qa-only        # QA only
 ```
-Creates sub-tasks and saves a session file at `~/.jira-dev-flow/sessions/ABC-123.json`.
+Creates sub-tasks and saves a session file at `~/.jira-flow/sessions/ABC-123.json`.
 
 ### Transition ticket status
 ```bash
-jira-dev-flow ABC-123 --set-status startDevelopment
+jira-flow ABC-123 --set-status startDevelopment
 ```
 Uses the transition key defined in `config.json`. If the mapped name doesn't match any available transition, prints the list of valid names.
 
 ### Transition a sub-task status
 ```bash
-jira-dev-flow ABC-123 --set-subtask-status ABC-245 subtaskInProgress
-jira-dev-flow ABC-123 --set-subtask-status ABC-245 subtaskDone
+jira-flow ABC-123 --set-subtask-status ABC-245 subtaskInProgress
+jira-flow ABC-123 --set-subtask-status ABC-245 subtaskDone
 ```
 Also updates the session file. When all sub-tasks reach `done`, the session file and the ticket cache file are both auto-deleted.
 
 ### Close all open sub-tasks at once
 ```bash
-jira-dev-flow ABC-123 --close-all-subtasks
+jira-flow ABC-123 --close-all-subtasks
 ```
 Transitions every non-done sub-task in the session to `subtaskDone`, then deletes the session file.
 
 ### Add a comment
 ```bash
-jira-dev-flow ABC-123 --comment "AC unclear: what does field X refer to?"
+jira-flow ABC-123 --comment "AC unclear: what does field X refer to?"
 ```
 
 ### Session management
 ```bash
-jira-dev-flow --list-sessions          # show all active sessions with progress
-jira-dev-flow ABC-123 --clear-session  # manually delete session file and ticket cache
+jira-flow --list-sessions          # show all active sessions with progress
+jira-flow ABC-123 --clear-session  # manually delete session file and ticket cache
 ```
 
 ---
@@ -172,7 +172,7 @@ This CLI is created to integrate it with GHCP workflows so that without Atlassia
 
 After `--read`, GHCP prompts reference the ticket cache directly:
 ```
-#file:~/.jira-dev-flow/ticket-cache/ABC-123.json
+#file:~/.jira-flow/ticket-cache/ABC-123.json
 ```
 
 which GHCP can consume
@@ -195,5 +195,5 @@ curl -u your@email.com:YOUR_TOKEN https://yourcompany.atlassian.net/rest/api/3/m
 ## Security
 
 - No credentials in the repository
-- Each user stores their own API token locally in `~/.jira-dev-flow/config.json`
+- Each user stores their own API token locally in `~/.jira-flow/config.json`
 - Works with Jira Cloud only

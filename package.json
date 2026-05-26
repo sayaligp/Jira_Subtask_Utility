@@ -1,9 +1,9 @@
 {
-  "name": "jira-dev-flow",
+  "name": "jira-flow-cli",
   "version": "2.0.0",
-  "description": "CLI for full Jira dev workflow - read tickets, create subtasks, track status, add comments",
+  "description": "CLI for full Jira workflow - read tickets, create subtasks, track status, add comments",
   "bin": {
-    "jira-dev-flow": "./bin/jira-dev-flow.js"
+    "jira-flow": "./bin/jira-flow.js"
   },
   "type": "module",
   "dependencies": {
@@ -26,6 +26,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sayaligp/Jira_Dev_Flow.git"
+    "url": "https://github.com/sayaligp/Jira-Flow-CLI.git"
   }
 }

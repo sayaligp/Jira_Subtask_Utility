@@ -69,7 +69,7 @@ if (args[0] === "tasks") {
 
 // ------------------------------------
 // LIST SESSIONS (no parent key needed)
-// jira-dev-flow --list-sessions
+// jira-flow --list-sessions
 // ------------------------------------
 if (args.includes("--list-sessions")) {
   const sessions = listSessions();
@@ -98,23 +98,23 @@ const parentKey = args[0];
 if (!parentKey || parentKey.startsWith("--")) {
   console.error(
     "Usage:\n" +
-    "  jira-dev-flow --list-sessions\n" +
-    "  jira-dev-flow <KEY> --read\n" +
-    "  jira-dev-flow <KEY> --set-status <transitionKey>\n" +
-    "  jira-dev-flow <KEY> --set-subtask-status <SUBTASK-KEY> <transitionKey>\n" +
-    "  jira-dev-flow <KEY> --close-all-subtasks\n" +
-    "  jira-dev-flow <KEY> --comment \"text\"\n" +
-    "  jira-dev-flow <KEY> --clear-session\n" +
-    "  jira-dev-flow <KEY> [--dev-only | --qa-only | --skip-ux]\n" +
-    "  jira-dev-flow config\n" +
-    "  jira-dev-flow tasks"
+    "  jira-flow --list-sessions\n" +
+    "  jira-flow <KEY> --read\n" +
+    "  jira-flow <KEY> --set-status <transitionKey>\n" +
+    "  jira-flow <KEY> --set-subtask-status <SUBTASK-KEY> <transitionKey>\n" +
+    "  jira-flow <KEY> --close-all-subtasks\n" +
+    "  jira-flow <KEY> --comment \"text\"\n" +
+    "  jira-flow <KEY> --clear-session\n" +
+    "  jira-flow <KEY> [--dev-only | --qa-only | --skip-ux]\n" +
+    "  jira-flow config\n" +
+    "  jira-flow tasks"
   );
   process.exit(1);
 }
 
 // ------------------------------------
 // READ TICKET
-// jira-dev-flow ABC-123 --read
+// jira-flow ABC-123 --read
 // ------------------------------------
 if (args.includes("--read")) {
   (async () => {
@@ -147,13 +147,13 @@ if (args.includes("--read")) {
 
 // ------------------------------------
 // SET PARENT TICKET STATUS
-// jira-dev-flow ABC-123 --set-status startDevelopment
+// jira-flow ABC-123 --set-status startDevelopment
 // ------------------------------------
 else if (args.includes("--set-status")) {
   const transitionKey = getFlagValue("--set-status");
   if (!transitionKey) {
-    console.error("Usage: jira-dev-flow <KEY> --set-status <transitionKey>");
-    console.error("Available transition keys are defined in ~/.jira-dev-flow/config.json");
+    console.error("Usage: jira-flow <KEY> --set-status <transitionKey>");
+    console.error("Available transition keys are defined in ~/.jira-flow/config.json");
     process.exit(1);
   }
   (async () => {
@@ -170,7 +170,7 @@ else if (args.includes("--set-status")) {
 
 // ------------------------------------
 // SET SUBTASK STATUS
-// jira-dev-flow ABC-123 --set-subtask-status ABC-456 subtaskDone
+// jira-flow ABC-123 --set-subtask-status ABC-456 subtaskDone
 // ------------------------------------
 else if (args.includes("--set-subtask-status")) {
   const subtaskKey = getFlagValue("--set-subtask-status");
@@ -178,7 +178,7 @@ else if (args.includes("--set-subtask-status")) {
   const transitionKey = args[idx + 2];
 
   if (!subtaskKey || !transitionKey || transitionKey.startsWith("--")) {
-    console.error("Usage: jira-dev-flow <PARENT-KEY> --set-subtask-status <SUBTASK-KEY> <transitionKey>");
+    console.error("Usage: jira-flow <PARENT-KEY> --set-subtask-status <SUBTASK-KEY> <transitionKey>");
     process.exit(1);
   }
   (async () => {
@@ -206,12 +206,12 @@ else if (args.includes("--set-subtask-status")) {
 
 // ------------------------------------
 // ADD COMMENT
-// jira-dev-flow ABC-123 --comment "text here"
+// jira-flow ABC-123 --comment "text here"
 // ------------------------------------
 else if (args.includes("--comment")) {
   const text = getFlagValue("--comment");
   if (!text) {
-    console.error('Usage: jira-dev-flow <KEY> --comment "your comment text"');
+    console.error('Usage: jira-flow <KEY> --comment "your comment text"');
     process.exit(1);
   }
   (async () => {
@@ -228,7 +228,7 @@ else if (args.includes("--comment")) {
 
 // ------------------------------------
 // CLOSE ALL SUBTASKS
-// jira-dev-flow ABC-123 --close-all-subtasks
+// jira-flow ABC-123 --close-all-subtasks
 // Transitions every non-done subtask in the session to subtaskDone
 // ------------------------------------
 else if (args.includes("--close-all-subtasks")) {
@@ -256,7 +256,7 @@ else if (args.includes("--close-all-subtasks")) {
 
 // ------------------------------------
 // CLEAR SESSION
-// jira-dev-flow ABC-123 --clear-session
+// jira-flow ABC-123 --clear-session
 // ------------------------------------
 else if (args.includes("--clear-session")) {
   try {
@@ -271,7 +271,7 @@ else if (args.includes("--clear-session")) {
 
 // ------------------------------------
 // CREATE SUBTASKS (existing flow)
-// jira-dev-flow ABC-123 [--dev-only | --qa-only | --skip-ux]
+// jira-flow ABC-123 [--dev-only | --qa-only | --skip-ux]
 // ------------------------------------
 else {
   const devOnly = args.includes("--dev-only");

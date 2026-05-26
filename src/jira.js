@@ -141,7 +141,7 @@ export async function transitionIssue(key, transitionConfigKey) {
     throw new Error(
       `Transition "${transitionName}" not found for ${key}.\n` +
       `Available transitions on this issue: ${available}\n` +
-      `Update "transitions.${transitionConfigKey}" in ~/.jira-dev-flow/config.json to match one of the above.`
+      `Update "transitions.${transitionConfigKey}" in ~/.jira-flow/config.json to match one of the above.`
     );
   }
 

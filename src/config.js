@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const BASE_DIR = path.join(os.homedir(), ".jira-dev-flow");
+const BASE_DIR = path.join(os.homedir(), ".jira-flow");
 const CONFIG_PATH = path.join(BASE_DIR, "config.json");
 const TASKS_PATH = path.join(BASE_DIR, "tasks.json");
 const SESSIONS_DIR = path.join(BASE_DIR, "sessions");
@@ -29,12 +29,12 @@ export function ensureUserFiles() {
 
   if (!fs.existsSync(CONFIG_PATH)) {
     fs.copyFileSync(DEFAULT_CONFIG, CONFIG_PATH);
-    console.log("📄 config.json created at ~/.jira-dev-flow (please update it)");
+    console.log("📄 config.json created at ~/.jira-flow (please update it)");
   }
 
   if (!fs.existsSync(TASKS_PATH)) {
     fs.copyFileSync(DEFAULT_TASKS, TASKS_PATH);
-    console.log("📄 tasks.json created at ~/.jira-dev-flow (editable)");
+    console.log("📄 tasks.json created at ~/.jira-flow (editable)");
   }
 }
 
@@ -87,7 +87,7 @@ export function writeSession(parentKey, subtasks) {
 export function loadSession(parentKey) {
   const filePath = sessionPath(parentKey);
   if (!fs.existsSync(filePath)) {
-    throw new Error(`No session found for ${parentKey}. Run jira-dev-flow ${parentKey} first to create subtasks.`);
+    throw new Error(`No session found for ${parentKey}. Run jira-flow ${parentKey} first to create subtasks.`);
   }
   return JSON.parse(fs.readFileSync(filePath, "utf-8"));
 }
